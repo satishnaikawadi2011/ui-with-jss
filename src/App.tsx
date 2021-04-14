@@ -1,9 +1,9 @@
 import React from 'react';
 import './App.css';
-import ModalExample from './examples/Modal.example';
+import ToastExample from './examples/Toast.example';
 
 function App() {
-	return <ModalExample />;
+	return <ToastExample />;
 }
 
 export default App;

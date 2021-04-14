@@ -1,9 +1,9 @@
 import colourNameToHex from './colorNameToHex';
 
 export default function pickTextColorBasedOnBgColorAdvanced(
-	backgroundColor: string,
-	lightColor: string,
-	darkColor: string
+	backgroundColor = '#ffffff',
+	lightColor = '#ffffff',
+	darkColor = '#000000'
 ): string {
 	const hexPattern = /^#[0-9a-f]{3,6}$/i;
 	const rgbPattern = /rgb\((\d{1,3}), (\d{1,3}), (\d{1,3})\)/;
