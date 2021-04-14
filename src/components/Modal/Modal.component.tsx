@@ -9,6 +9,7 @@ interface ModalProps {
 	show: boolean;
 	onClose: () => void;
 	backdropStyle?: CSSProperties;
+	scrollable?: boolean;
 }
 
 const Modal: React.FC<ModalProps & React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>> = ({
@@ -18,6 +19,7 @@ const Modal: React.FC<ModalProps & React.DetailedHTMLProps<React.HTMLAttributes<
 	style,
 	backdropStyle,
 	className,
+	scrollable,
 	...props
 }) => {
 	const [
@@ -70,7 +72,22 @@ const Modal: React.FC<ModalProps & React.DetailedHTMLProps<React.HTMLAttributes<
 						e.nativeEvent.stopImmediatePropagation();
 					}}
 					className={`${className} ${styles.modal}`}
-					style={style}
+					style={
+
+							style ? {
+								...style,
+								overflowY:
+
+										scrollable ? 'scroll' :
+										'hidden'
+							} :
+							{
+								overflowY:
+
+										scrollable ? 'scroll' :
+										'hidden'
+							}
+					}
 				>
 					{children}
 				</div>
