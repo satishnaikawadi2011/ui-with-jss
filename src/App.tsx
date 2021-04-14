@@ -1,9 +1,9 @@
 import React from 'react';
 import './App.css';
-import ToastExample from './examples/Toast.example';
+import SwitchExample from './examples/Switch.example';
 
 function App() {
-	return <ToastExample />;
+	return <SwitchExample />;
 }
 
 export default App;
