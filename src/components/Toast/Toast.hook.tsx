@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { CSSProperties, useRef } from 'react';
 import styles from './toast.module.css';
 import SuccessIcon from '../../icons/SuccessIcon';
 import ErrorIcon from '../../icons/ErrorIcon';
@@ -12,6 +12,10 @@ export type Variant = 'success' | 'error' | 'warning' | 'info' | 'custom';
 export interface ToastProps {
 	bgColor?: string;
 	messageColor?: string;
+	containerStyle?: CSSProperties;
+	contentStyle?: CSSProperties;
+	containerClasses?: string;
+	contentClasses?: string;
 }
 
 const useToast = (message: string, variant: Variant = 'success', icon: any = SuccessIcon) => {
@@ -26,7 +30,16 @@ const useToast = (message: string, variant: Variant = 'success', icon: any = Suc
 
 	const ToastComponent: React.FC<
 		ToastProps & React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>
-	> = ({ className, bgColor, messageColor, ...props }) => {
+	> = ({
+		className,
+		bgColor,
+		messageColor,
+		containerStyle,
+		contentStyle,
+		containerClasses,
+		contentClasses,
+		...props
+	}) => {
 		const classes = useToastStyles({ bgColor, messageColor, variant });
 		let toastClasses: string = classes.custom;
 		switch (variant) {
@@ -51,8 +64,13 @@ const useToast = (message: string, variant: Variant = 'success', icon: any = Suc
 		}
 		return (
 			<React.Fragment>
-				<div ref={toastRef} className={`${className} ${toastClasses} ${styles.snackbar}`} {...props}>
-					<div className={styles.content}>
+				<div
+					ref={toastRef}
+					className={`${className} ${containerClasses} ${toastClasses} ${styles.snackbar}`}
+					style={containerStyle}
+					{...props}
+				>
+					<div className={`${styles.content} ${contentClasses}`} style={contentStyle}>
 						<Icon className={`${styles.icon} ${classes.iconColor}`} />
 						{message}
 					</div>

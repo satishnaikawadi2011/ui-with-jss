@@ -14,7 +14,11 @@ const ToastExample = () => {
 			}}
 		>
 			<button onClick={() => openToast()}>Show Snackbar </button>
-			<ToastComponent messageColor="#ffffff" />
+			<ToastComponent
+				containerStyle={{ backgroundColor: 'red' }}
+				contentStyle={{ fontSize: '2rem' }}
+				messageColor="#ffffff"
+			/>
 		</div>
 	);
 };
