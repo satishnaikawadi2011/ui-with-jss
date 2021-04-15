@@ -1,9 +1,9 @@
 import React from 'react';
 import './App.css';
-import DrawerExmaple from './examples/Drawer.exmaple';
+import CollapsibleExample from './examples/Collapsible/Collapsible.example';
 
 function App() {
-	return <DrawerExmaple />;
+	return <CollapsibleExample />;
 }
 
 export default App;

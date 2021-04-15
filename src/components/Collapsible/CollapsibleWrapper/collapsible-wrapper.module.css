@@ -1,0 +1,23 @@
+.collapse__content {
+  width: 50vw;
+  margin: auto;
+  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+@media (max-width: 768px) {
+  .collapse__content {
+    width: 80vw;
+    margin: auto;
+    box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.75);
+  }
+}
+@media (max-width: 425px) {
+  .collapse__content {
+    width: 80vw;
+  }
+}
+@media (max-width: 320px) {
+  .collapse__content {
+    width: 80vw;
+  }
+}
